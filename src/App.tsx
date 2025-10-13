@@ -1,6 +1,7 @@
-
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Student from './views/Student';
 import Teachers from './views/Teachers';
 import Admin from './views/Admin';
@@ -21,6 +22,7 @@ function App() {
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
+      <ToastContainer position="top-right" autoClose={3000} />
     </Router>
   );
 }
