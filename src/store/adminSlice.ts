@@ -7,6 +7,7 @@ const initialState: Admin = {
   password: 'admin',
   role: 'admin',
   email: 'admin@example.com',
+  isLoggedIn: false,
 };
 
 export const adminSlice = createSlice({

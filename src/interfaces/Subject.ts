@@ -1,7 +1,8 @@
 export interface Subject {
-  id: string;
+  id: number;
   name: string;
   description?: string;
-  teacherId: string;
+  teacherId?: number;
+  teacherName?: string;
   createdAt: string;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
+import Modal from 'react-responsive-modal';
 
-const UpdateSubjectPopup: React.FC<{ onClose: () => void; subject: any; onUpdate: (subject: any) => void }> = ({ onClose, subject, onUpdate }) => {
+const UpdateSubjectPopup: React.FC<{ isOpen: boolean; onClose: () => void; subject: any; onUpdate: (subject: any) => void }> = ({ isOpen, onClose, subject, onUpdate }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -16,29 +17,35 @@ const UpdateSubjectPopup: React.FC<{ onClose: () => void; subject: any; onUpdate
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
+    <Modal
+      open={isOpen}
+      onClose={onClose}
+      // className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto mt-24 outline-none"
+      // overlayClassName="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50"
+    >
+      <div className="inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 popup-div">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
-        <h2 className="text-xl font-bold mb-4">Update Subject</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block mb-2">Name</label>
-            <input name="name" type="text" defaultValue={subject.name} className="w-full px-3 py-2 border rounded" required />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-2">Description</label>
-            <input name="description" type="text" defaultValue={subject.description} className="w-full px-3 py-2 border rounded" />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-2">Teacher ID</label>
-            <input name="teacherId" type="text" defaultValue={subject.teacherId} className="w-full px-3 py-2 border rounded" />
-          </div>
-          <div className="flex justify-end gap-2">
-            <button type="button" className="px-4 py-2 bg-gray-300 rounded" onClick={onClose}>Cancel</button>
-            <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Update</button>
-          </div>
-        </form>
-      </div>
+
+
+      <h2 className="text-xl font-bold mb-4">Update Subject</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4 margin-bottom-20px">
+          <label className="block mb-2">Name</label>
+          <input name="name" type="text" defaultValue={subject.name} className="w-full px-3 py-2 border rounded" required />
+        </div>
+        <div className="mb-4 margin-bottom-20px">
+          <label className="block mb-2">Description</label>
+          <input name="description" type="text" className="w-full px-3 py-2 border rounded" defaultValue={subject.description}/>
+        </div>
+        {/* Add other fields as needed */}
+        <div className="flex justify-end gap-2 action-buttons">
+          <button type="button" className="px-4 py-2 bg-gray-300 rounded" onClick={onClose}>Cancel</button>
+          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded edit-button">Update</button>
+        </div>
+      </form>
     </div>
+    </div>
+    </Modal>
   );
 };
 

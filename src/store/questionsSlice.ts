@@ -4,45 +4,45 @@ import type { Question } from '../interfaces';
 
 const initialState: Question[] = [
   {
-    id: 'q1',
-    subjectId: 'english1',
-    teacherId: 'teacher1',
+    id: 1,
+    subjectId: 1,
+    teacherId: 1,
     text: 'What is the synonym of "happy"?',
     options: ['Sad', 'Joyful', 'Angry', 'Tired'],
     answer: 'Joyful',
     createdAt: new Date().toISOString(),
   },
   {
-    id: 'q2',
-    subjectId: 'english1',
-    teacherId: 'teacher1',
+    id: 2,
+    subjectId: 1,
+    teacherId: 1,
     text: 'Which is a noun?',
     options: ['Run', 'Apple', 'Quickly', 'Blue'],
     answer: 'Apple',
     createdAt: new Date().toISOString(),
   },
   {
-    id: 'q3',
-    subjectId: 'english1',
-    teacherId: 'teacher1',
+    id: 3,
+    subjectId: 1,
+    teacherId: 1,
     text: 'Choose the correct spelling:',
     options: ['Recieve', 'Receive', 'Recive', 'Receeve'],
     answer: 'Receive',
     createdAt: new Date().toISOString(),
   },
   {
-    id: 'q4',
-    subjectId: 'english1',
-    teacherId: 'teacher1',
+    id: 4,
+    subjectId: 1,
+    teacherId: 1,
     text: 'Which word is an adjective?',
     options: ['Beautiful', 'Run', 'Apple', 'Quickly'],
     answer: 'Beautiful',
     createdAt: new Date().toISOString(),
   },
   {
-    id: 'q5',
-    subjectId: 'english1',
-    teacherId: 'teacher1',
+    id: 5,
+    subjectId: 1,
+    teacherId: 1,
     text: 'What is the antonym of "cold"?',
     options: ['Hot', 'Cool', 'Warm', 'Freeze'],
     answer: 'Hot',
@@ -61,7 +61,7 @@ export const questionsSlice = createSlice({
       const idx = state.findIndex(q => q.id === action.payload.id);
       if (idx !== -1) state[idx] = action.payload;
     },
-    removeQuestion(state, action: PayloadAction<string>) {
+    removeQuestion(state, action: PayloadAction<number>) {
       return state.filter(q => q.id !== action.payload);
     },
   },

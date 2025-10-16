@@ -4,10 +4,10 @@ import type { Subject } from '../interfaces';
 
 const initialState: Subject[] = [
   {
-    id: 'english1',
+    id: 1,
     name: 'English',
     description: 'English Language subject',
-    teacherId: 'teacher1',
+    teacherId: 1,
     createdAt: new Date().toISOString(),
   },
 ];
@@ -23,7 +23,7 @@ export const subjectsSlice = createSlice({
       const idx = state.findIndex(s => s.id === action.payload.id);
       if (idx !== -1) state[idx] = action.payload;
     },
-    removeSubject(state, action: PayloadAction<string>) {
+    removeSubject(state, action: PayloadAction<number>) {
       return state.filter(s => s.id !== action.payload);
     },
   },

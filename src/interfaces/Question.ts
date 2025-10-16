@@ -1,9 +1,10 @@
 export interface Question {
-  id: string;
-  subjectId: string;
-  teacherId: string;
+  id: number;
+  subjectId?: number;
+  teacherId?: number;
   text: string;
   options: string[];
   answer: string;
-  createdAt: string;
+  createdBy?: string;
+  createdAt?: string;
 }

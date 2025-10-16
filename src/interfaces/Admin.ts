@@ -3,5 +3,6 @@ export interface Admin {
   username: string;
   password: string;
   email?: string;
+  isLoggedIn: boolean;
   role: 'admin';
 }

@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import LoginForm from '../components/admin/LoginForm';
 import Dashboard from '../components/admin/Dashboard';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../store';
 
 const Admin: React.FC = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const isLoggedIn = useSelector((state: RootState) => state.admin.isLoggedIn);
+  
 
-  // Temporary login handler for demo
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoggedIn(true);
-  };
-
-  return loggedIn ? (
+  return isLoggedIn ? (
     <Dashboard />
   ) : (
-    <LoginForm onSubmit={handleLogin} />
+    <LoginForm />
   );
 };
 

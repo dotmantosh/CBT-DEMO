@@ -4,8 +4,9 @@ import type { Teacher } from '../interfaces';
 
 const initialState: Teacher[] = [
   {
-    id: 'teacher1',
-    subjectId: 'english1',
+    id: 1,
+    subjectId: 1,
+    subject: 'English',
     title: 'Mrs',
     firstname: 'Grace',
     lastname: 'Johnson',
@@ -25,7 +26,7 @@ export const teachersSlice = createSlice({
       const idx = state.findIndex(t => t.id === action.payload.id);
       if (idx !== -1) state[idx] = action.payload;
     },
-    removeTeacher(state, action: PayloadAction<string>) {
+    removeTeacher(state, action: PayloadAction<number>) {
       return state.filter(t => t.id !== action.payload);
     },
   },
