@@ -19,8 +19,8 @@ const SubjectsTable: React.FC = () => {
   }>;
   const dispatch = useDispatch();
   const [showAddPopup, setShowAddPopup] = useState(false);
-  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
-  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  // const [showUpdatePopup, setShowUpdatePopup] = useState(false);
+  // const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [actionPopup, setActionPopup] = useState<{
     id: number;
     action: string;
@@ -37,14 +37,14 @@ const SubjectsTable: React.FC = () => {
     dispatch(updateSubject(subject));
     toast.success("Subject updated");
     setActionPopup(null);
-    setShowUpdatePopup(false);
+    // setShowUpdatePopup(false);
   };
 
   const handleDeleteSubject = (id: number) => {
     dispatch(removeSubject(id));
     toast.error("Subject deleted");
     setActionPopup(null);
-    setShowDeletePopup(false);
+    // setShowDeletePopup(false);
   };
 
   return (
@@ -78,7 +78,7 @@ const SubjectsTable: React.FC = () => {
                     className="px-2 py-1 bg-gray-200 rounded edit-button"
                     onClick={() => {
                       setActionPopup({ id: subject.id, action: "update" });
-                      setShowUpdatePopup(true);
+                      // setShowUpdatePopup(true);
                     }}
                   >
                     Edit
@@ -87,7 +87,7 @@ const SubjectsTable: React.FC = () => {
                     className="px-2 py-1 bg-red-200 text-red-700 rounded delete-button"
                     onClick={() => {
                       setActionPopup({ id: subject.id, action: "delete" });
-                      setShowDeletePopup(true);
+                      // setShowDeletePopup(true);
                     }}
                   >
                     Delete

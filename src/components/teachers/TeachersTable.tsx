@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddTeacherPopup from "./AddTeacherPopup";
-import TeacherActionsDropdown from "./TeacherActionsDropdown";
 import UpdateTeacherPopup from "./UpdateTeacherPopup";
 import SuspendTeacherPopup from "./SuspendTeacherPopup";
 import DeleteTeacherPopup from "./DeleteTeacherPopup";
@@ -12,7 +11,6 @@ import {
   removeTeacher,
 } from "../../store/teachersSlice";
 import { toast } from "react-toastify";
-import Modal from "react-responsive-modal";
 
 type Teacher = {
   id: number;
@@ -25,8 +23,8 @@ const TeachersTable: React.FC = () => {
   const teachers = useSelector((state: RootState) => state.teachers) as Teacher[];
   const dispatch = useDispatch();
   const [showAddPopup, setShowAddPopup] = useState(false);
-  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
-  const [showSuspendPopup, setShowSuspendPopup] = useState(false);
+  // const [showUpdatePopup, setShowUpdatePopup] = useState(false);
+  // const [showSuspendPopup, setShowSuspendPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [actionPopup, setActionPopup] = useState<{
     id: number;
@@ -45,14 +43,14 @@ const TeachersTable: React.FC = () => {
     dispatch(updateTeacher(teacher));
     toast.success("Teacher updated");
     setActionPopup(null);
-    setShowUpdatePopup(false);
+    // setShowUpdatePopup(false);
   };
 
   const handleSuspendTeacher = (teacher: any) => {
     dispatch(updateTeacher({ ...teacher, isActive: false }));
     toast.info("Teacher suspended");
     setActionPopup(null);
-    setShowSuspendPopup(false);
+    // setShowSuspendPopup(false);
   };
 
   const handleDeleteTeacher = (id: string) => {
@@ -88,7 +86,7 @@ const TeachersTable: React.FC = () => {
         <SuspendTeacherPopup
           onClose={() => {
             setActionPopup(null);
-            setShowSuspendPopup(false);
+            // setShowSuspendPopup(false);
           }}
           teacher={getTeacherById(actionPopup.id)}
           onSuspend={handleSuspendTeacher}
@@ -142,7 +140,7 @@ const TeachersTable: React.FC = () => {
                     className="px-2 py-1 bg-gray-200 rounded edit-button"
                     onClick={() => {
                       setActionPopup({ id: teacher.id, action: "update" });
-                      setShowUpdatePopup(true);
+                      // setShowUpdatePopup(true);
                     }}
                   >
                     Edit

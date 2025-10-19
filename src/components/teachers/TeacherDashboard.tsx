@@ -127,7 +127,7 @@ const AddQuestionPopup: React.FC<{
   const [text, setText] = useState("");
   const [options, setOptions] = useState(["", "", "", ""]);
   const [answer, setAnswer] = useState("");
-  const [isAddModalOpen, setIsAddModalOpen] = useState(true);
+  const [isAddModalOpen] = useState(true);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -207,7 +207,7 @@ const EditQuestionPopup: React.FC<{
   const [text, setText] = useState(question.text);
   const [options, setOptions] = useState([...question.options]);
   const [answer, setAnswer] = useState(question.answer);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(true);
+  const [isEditModalOpen] = useState(true);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -284,7 +284,7 @@ const DeleteQuestionPopup: React.FC<{
   onClose: () => void;
   onDelete: () => void;
 }> = ({ question, onClose, onDelete }) => {
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(true);
+  const [isDeleteModalOpen] = useState(true);
   return (
     <Modal open={isDeleteModalOpen} onClose={onClose} center>
       <div className="inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">

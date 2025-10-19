@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import type { RootState } from '../../store';
 
 
@@ -10,8 +10,6 @@ const AddSubjectPopup: React.FC<{ isOpen: boolean; onClose: () => void; onAdd: (
     name: string;
     description: string;
   }>;
-
-  const dispatch = useDispatch();
 
   const getNextId = () => {
     if (subjects.length === 0) return 1;
