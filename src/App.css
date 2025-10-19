@@ -58,12 +58,12 @@ input, textarea, select {
 
 .next-prev {
   max-width: 600px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .next-prev button {
   min-width: 120px;
-  margin-right: 40px;
+  /* margin-right: 40px; */
 }
 
 .question-text {

@@ -169,7 +169,7 @@ const QuizView: React.FC<{ subjectId: number }> = ({ subjectId }) => {
             </button>
           ))}
         </div>
-        <div className="flex justify-between items-center next-prev">
+        <div className="flex justify-between items-center next-prev d-flex justify-between">
           <button
             className="px-4 py-2 bg-gray-300 rounded"
             onClick={() => setCurrent(current - 1)}
