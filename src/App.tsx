@@ -14,7 +14,7 @@ function App() {
     <Router>
       <header style={{ padding: '1rem', borderBottom: '1px solid #eee', marginBottom: '2rem' }}>
         <div className="logo">
-          OBMS CBT
+          TOSH-TECH CBT DEMO
         </div>
         <nav style={{ display: 'flex', gap: '1rem' }}>
           <Link to="/">Home</Link>
