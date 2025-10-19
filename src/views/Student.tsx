@@ -9,7 +9,7 @@ const Student: React.FC = () => {
 
   if (!selectedSubject) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen ">
+      <div className="flex flex-col items-center justify-center admin-login admin-container">
         <h2 className="text-2xl font-bold mb-6">Select Subject</h2>
         <select
           className="mb-4 px-3 py-2 border rounded"
@@ -37,7 +37,7 @@ const Student: React.FC = () => {
 
   if (!startQuiz) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex flex-col items-center justify-center bg-gray-100 admin-login admin-container">
         <h2 className="text-2xl font-bold mb-6">Ready to start?</h2>
         <button
           className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -94,7 +94,7 @@ const QuizView: React.FC<{ subjectId: number }> = ({ subjectId }) => {
     const percent = Math.round((score / questions.length) * 100);
     const passed = percent >= 50;
     return (
-      <div className="flex flex-col items-center justify-center bg-gray-100 admin-login">
+      <div className="flex flex-col items-center justify-center bg-gray-100 admin-login admin-container">
         <h2 className="text-2xl font-bold mb-4">Your Score</h2>
         <p className="mb-2">
           {score} / {questions.length} ({percent}%)
@@ -120,17 +120,17 @@ const QuizView: React.FC<{ subjectId: number }> = ({ subjectId }) => {
 
   if (showSubmit) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex flex-col items-center justify-center bg-gray-100 admin-login admin-container">
         <h2 className="text-2xl font-bold mb-4">Are you ready to submit?</h2>
         <div className="flex gap-4">
           <button
-            className="bg-green-600 text-white px-4 py-2 rounded"
+            className="bg-green-600 text-white px-4 py-2 rounded edit-button margin-right-10px"
             onClick={() => setSubmitted(true)}
           >
             Yes
           </button>
           <button
-            className="bg-gray-300 px-4 py-2 rounded"
+            className="bg-gray-300 px-4 py-2 rounded delete-button"
             onClick={() => setShowSubmit(false)}
           >
             No
@@ -142,7 +142,7 @@ const QuizView: React.FC<{ subjectId: number }> = ({ subjectId }) => {
 
   const q = questions[current];
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 admin-login">
+    <div className="flex flex-col items-center justify-center bg-gray-100 admin-container">
       <div className="w-full max-w-xl bg-white p-6 rounded shadow">
         <div className="mb-4 flex justify-between items-center">
           <h2 className="font-bold text-lg">{subject?.name}</h2>
@@ -209,7 +209,7 @@ const CorrectionsView: React.FC<{
   const [current, setCurrent] = useState(0);
   const q = questions[current];
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 question-corrections admin-container">
+    <div className="flex flex-col items-center justify-center bg-gray-100 question-corrections admin-container admin-login">
       <div className="w-full max-w-xl bg-white p-6 rounded shadow">
         <div className="mb-4 flex justify-between items-center">
           <span className="font-bold text-lg">
@@ -223,14 +223,14 @@ const CorrectionsView: React.FC<{
           Question {current + 1} of {questions.length}
         </div>
         <div className="mb-4 correction-question-text">{q.text}</div>
-        <div className="mb-6">
+        <div className="mb-6 question-options">
           {q.options.map((opt: string) => {
             const isCorrect: boolean = opt === q.answer;
             const isChosen: boolean = answers[current] === opt;
             return (
               <div
                 key={opt}
-                className={`block w-full  px-4 py-2 correction-options mb-2  ${
+                className={`block px-4 py-2 correction-options mb-2  ${
                   isCorrect
                     ? "bg-green-200 correct"
                     : isChosen
@@ -269,7 +269,7 @@ const CorrectionsView: React.FC<{
             Next
           </button>
         </div>
-        <div className="mt-4 text-center">
+        <div className="mt-4 text-center margin-top-10px">
           <button
             className="px-4 py-2 bg-gray-700 text-white rounded"
             onClick={onBack}

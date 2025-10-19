@@ -20,6 +20,7 @@ const UpdateSubjectPopup: React.FC<{ isOpen: boolean; onClose: () => void; subje
     <Modal
       open={isOpen}
       onClose={onClose}
+      center
       // className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto mt-24 outline-none"
       // overlayClassName="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50"
     >

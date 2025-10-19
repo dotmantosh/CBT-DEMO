@@ -52,6 +52,8 @@ input, textarea, select {
   align-items: stretch;
   max-width: 600px;
   margin: 0 auto;
+  margin-bottom: 10px;
+  text-wrap: wrap;
 }
 
 .next-prev {
@@ -95,11 +97,14 @@ input, textarea, select {
 }
 .correction-options {
   padding: 10px;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: inherit;
   margin-bottom: 5px;
   border-radius: 5px;
+  max-width: 100%;
+  /* margin-bottom: 10px; */
 }
+
+
 
 .form-input-div {
   margin-bottom: 10px;
@@ -136,8 +141,12 @@ ul li {
   margin-bottom: 40px
 }
 
-.add-button { 
-  background-color: lightgreen;
+.margin-right-10px {
+  margin-right: 10px;
+}
+
+.margin-top-10px {
+  margin-top: 10px;
 }
 
 .section-div{
@@ -158,23 +167,35 @@ ul li {
 }
 
 .add-button {
-  background-color: lightblue; 
+  background-color: rgb(54, 135, 240); 
 }
 .edit-button {
-  background-color: lightgreen; 
+  background-color: rgb(41, 235, 41);
+  color: black;
 }
 .delete-button {
-  background-color: lightcoral; 
+  background-color: rgb(253, 57, 57); 
 }
 
 
 .teachers-login, .admin-login {
   height: calc(100vh - 76px - 2rem)!important;
+  /* margin-bottom: 10px !important; */
 }
 .admin-container {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
+
+.react-responsive-modal-modal{
+  border-radius: 10px;
+}
+
+table {
+  border-spacing: 10px;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -196,4 +217,54 @@ ul li {
 
 .read-the-docs {
   color: #888;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #ffffff;
+    background-color: #121212;
+  }
+  a:hover {
+    color: #b1b3ff;
+  }
+  input, textarea, select {
+    background-color: #222;
+    border-color: #444;
+    color: #fff;
+  }
+  button {
+    background-color: #333;
+    color: #fff;
+  }
+  button:hover {
+    border-color: #b1b3ff;
+  }
+
+  .react-responsive-modal-modal{
+    color: #ffffff!important;
+    background-color: #121212 !important;
+  }
+  .react-responsive-modal-closeButton svg{
+    fill: #ffffff !important; 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1{
+    font-size: 2.4em;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .logo {
+    position: relative;
+  }
+
+  .edit-button, .delete-button, .add-button {
+    font-size: 0.8em;
+    padding: 0.4em 0.8em;
+  }
+  
 }

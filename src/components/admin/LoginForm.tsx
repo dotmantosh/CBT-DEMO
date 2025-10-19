@@ -23,7 +23,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gray-100 admin-login">
+    <div className="flex items-center justify-center bg-gray-100 admin-login admin-container">
       <form
         className="bg-white p-8 rounded shadow-md w-full max-w-sm"
         onSubmit={handleSubmit}
