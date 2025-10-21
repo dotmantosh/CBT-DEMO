@@ -167,7 +167,7 @@ const AddQuestionPopup: React.FC<{
                 />
               ))}
             </div>
-            <div className="mb-4 margin-bottom-20px">
+            {/* <div className="mb-4 margin-bottom-20px">
               <label className="block mb-2">Answer</label>
               <input
                 type="text"
@@ -176,6 +176,23 @@ const AddQuestionPopup: React.FC<{
                 onChange={(e) => setAnswer(e.target.value)}
                 required
               />
+            </div> */}
+            <div className="mb-4 margin-bottom-20px">
+              <label className="block mb-2">answer</label>
+              <select
+                name="subjectId"
+                className="w-full px-3 py-2 border rounded"
+                defaultValue={""}
+                onChange={(e) => setAnswer(e.target.value)}
+                required
+              >
+                <option value="">Select answer</option>
+                {options.map((option: string, index: number) => (
+                  option.length > 0 && <option key={index} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="flex justify-end gap-2 action-buttons">
               <button
@@ -247,7 +264,7 @@ const EditQuestionPopup: React.FC<{
                 />
               ))}
             </div>
-            <div className="mb-4 margin-bottom-20px">
+            {/* <div className="mb-4 margin-bottom-20px">
               <label className="block mb-2">Answer</label>
               <input
                 type="text"
@@ -256,6 +273,23 @@ const EditQuestionPopup: React.FC<{
                 onChange={(e) => setAnswer(e.target.value)}
                 required
               />
+            </div> */}
+            <div className="mb-4 margin-bottom-20px">
+              <label className="block mb-2">answer</label>
+              <select
+                name="subjectId"
+                className="w-full px-3 py-2 border rounded"
+                defaultValue={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                required
+              >
+                <option value="">Select answer</option>
+                {options.map((option: string, index: number) => (
+                  option.length > 0 && <option key={index} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="flex justify-end gap-2 action-buttons">
               <button

@@ -224,8 +224,12 @@ table {
     color: #ffffff;
     background-color: #121212;
   }
+  a {
+    color: #fff !important;
+  }
+
   a:hover {
-    color: #b1b3ff;
+    color: #b1b3ff !important ;
   }
   input, textarea, select {
     background-color: #222;
@@ -246,6 +250,20 @@ table {
   }
   .react-responsive-modal-closeButton svg{
     fill: #ffffff !important; 
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    /* background-color: #121212; */
+  }
+  a {
+    color: #213547 !important;
+  }
+
+  a:hover {
+    color: #646cff !important;
   }
 }
 
